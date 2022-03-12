@@ -1,0 +1,14 @@
+.containerImage {
+  list-style: none;
+  width: 250px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+.listItem {
+  list-style: none;
+}
+
+.listItem:not(:last-child) {
+  margin-bottom: 15px;
+}

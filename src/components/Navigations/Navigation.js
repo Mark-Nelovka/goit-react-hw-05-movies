@@ -6,12 +6,11 @@ function Navigation() {
         <header className={s.header}>
             <nav>
             
-                <NavLink to="/"  className={s.link}>
+                <NavLink to="/"  className={({isActive}) =>`${isActive ? s.active : s.link}`}>
                 Home
                 </NavLink> 
             
-            
-            <NavLink to="/movies" className={s.link} >
+            <NavLink to="/movies" className={({isActive}) =>`${isActive ? s.active : s.link}`}>
                 Movies    
             </NavLink>
         </nav>

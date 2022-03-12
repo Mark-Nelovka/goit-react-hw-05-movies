@@ -1,0 +1,43 @@
+h2,
+p {
+  margin: 0 0;
+}
+
+.containerContent {
+  display: flex;
+  align-items: stretch;
+}
+
+.containerImage {
+  margin-right: 20px;
+}
+
+.overview {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.genres {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.list {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  padding: 0 0;
+  margin: 0 0;
+}
+
+.listNavLink {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.listItem:not(:last-child) {
+  margin-right: 15px;
+}

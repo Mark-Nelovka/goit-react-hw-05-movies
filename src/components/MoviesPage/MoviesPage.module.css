@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  width: 300px;
+  padding: 2px 5px;
+}
+
+.navItem {
+  text-decoration: none;
+  list-style: none;
+}
+
+.listItem:not(:last-child) {
+  margin-bottom: 10px;
+}
