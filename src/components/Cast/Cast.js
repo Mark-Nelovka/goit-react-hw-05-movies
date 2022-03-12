@@ -12,7 +12,6 @@ function Cast() {
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${KEY}&language=en-US`).then((res) => {
             setacters(res.data.cast)
-            // console.log(res.data.cast)
         })
     }, [movieId])
 

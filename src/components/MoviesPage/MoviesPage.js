@@ -16,16 +16,18 @@ function MoviesPage() {
         e.preventDefault();
         setInputValue(e.currentTarget.elements[0].value)
         setSearchFilm(true)
-        
+        history.push(`?query=${e.currentTarget.elements[0].value}`)
     }
 
     useEffect(() => {
-        if (!searchFilm) {
+        if (inputValue === '') {
             return;
         }
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${inputValue}`).then((res) => {
-            history.push(`?query=${inputValue}`)
+            
             setSearchFilm(res.data.results)
+        }).catch((error) => {
+            console.log(error)
         })
     }, [inputValue])
 
