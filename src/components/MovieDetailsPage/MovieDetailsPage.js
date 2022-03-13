@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { useParams, Link, NavLink, Routes, Route } from 'react-router-dom';
-import Cast from '../Cast/Cast';
-import Reviews from '../Reviews/Reviews';
 import axios from "axios";
 import s from './MovieDetailsPage.module.css';
-
+const Cast = lazy(() => import('../Cast/Cast.js' /* webpackChunkName: "Cast" */));
+const Reviews = lazy(() => import('../Reviews/Reviews.js' /* webpackChunkName: "Reviews" */));
 const KEY = '35d12bb42e646b3da19939eafb14620b';
+const PATH = 'https://image.tmdb.org/t/p/w300';
 
 function MovieDetailsPage() {
     const [filmDetails, setfilmDetails] = useState({
@@ -41,7 +41,7 @@ function MovieDetailsPage() {
             <div className={s.containerContent}>
                 <div className={s.containerImage}>
                     <img
-                src={img}
+                src={`${PATH}/${img}`}
                 alt={title}
                 width="300"
                 height="400"
@@ -67,10 +67,12 @@ function MovieDetailsPage() {
                 <NavLink className={s.listNavLink} to="reviews">Reviews</NavLink>
             </ul>            
             <hr />
+            <Suspense fallback={<h1>Loading...</h1>}>
             <Routes>
                 <Route path="/cast" element={<Cast />} />
                 <Route path="/reviews" element={<Reviews />} />
-            </Routes>
+                </Routes>
+            </Suspense>
         </>
     )
 }
