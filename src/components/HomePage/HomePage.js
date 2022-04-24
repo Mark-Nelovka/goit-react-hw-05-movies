@@ -12,7 +12,6 @@ function HomePage() {
     axios
       .get(`https://api.themoviedb.org/3/trending/all/day?api_key=${KEY}`)
       .then(res => {
-        console.log('🚀 ~ file: HomePage.js ~ line 15 ~ useEffect ~ res', res);
         setHomeMovies(res.data.results);
       });
   }, []);
